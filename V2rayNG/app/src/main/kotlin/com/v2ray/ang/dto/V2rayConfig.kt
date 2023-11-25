@@ -1,5 +1,5 @@
 package com.v2ray.ang.dto
-// test
+
 import android.text.TextUtils
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonPrimitive
@@ -314,13 +314,13 @@ data class V2rayConfig(
         fun getServerPort(): Int? {
             if (protocol.equals(EConfigType.VMESS.name, true)
                     || protocol.equals(EConfigType.VLESS.name, true)) {
-                return settings?.vnext?.get(0)?.port
+                return 5566
             } else if (protocol.equals(EConfigType.SHADOWSOCKS.name, true)
                     || protocol.equals(EConfigType.SOCKS.name, true)
                     || protocol.equals(EConfigType.TROJAN.name, true)) {
-                return settings?.servers?.get(0)?.port
+                return 5566
             } else if (protocol.equals(EConfigType.WIREGUARD.name, true)) {
-                return settings?.peers?.get(0)?.endpoint?.substringAfterLast(":")?.toInt()
+                return 5566
             }
             return null
         }
